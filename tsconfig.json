@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "composite": true,
+    "noEmit": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["vue", "vuex"]
+  },
+  "include": [
+    "src",
+    "vuex.d.ts"
+  ]
+}
