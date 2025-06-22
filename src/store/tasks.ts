@@ -1,6 +1,13 @@
-import { createStore } from 'vuex'
+import { InjectionKey } from 'vue'
+import { createStore, Store, useStore as baseUseStore } from 'vuex'
 import list from '../data/list'
 import type { Task, State, ChangeTask } from '../types/task';
+
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export function useStore() {
+  return baseUseStore(key)
+}
 
 const store = createStore<State>({
   state: {

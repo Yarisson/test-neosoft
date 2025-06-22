@@ -6,7 +6,7 @@
     <p v-else class="empty">Нет задач</p>
 </template>
 <script setup lang="ts">
-import { onMounted, computed, ref, type Ref } from 'vue';
+import { onMounted, computed, ref, watch } from 'vue';
 import TaskItem from './task/Task.vue';
 import storeTask from '../store/tasks'
 
@@ -35,6 +35,12 @@ const visibleTasks = computed(() => {
 
 const loadMore = (() => {
     visibleCount.value += itemsPerPage;
+})
+
+watch(() => props.filter, async (newVal, oldVal) => {
+    if (newVal !== oldVal) {
+        visibleCount.value = itemsPerPage
+    }
 })
 </script>
 
